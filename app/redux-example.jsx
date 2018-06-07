@@ -25,14 +25,17 @@ console.log('This is our CURRENT STATE!=>>', currentState);
 // Actions are simply Objects the only requirement: they MUST have the 'type' property: which will rep the Action Name;
 //***N/B*** ALL app names are ALL in UPPERCASES and use Under_Score to tie more than one name together like seen below:
 
-const action = {
+store.dispatch({
   type: 'CHANGE_NAME',
   name: 'Josiah'
-};
+});
 
 // now we have our Action, we need to Dispatch it to our Store.
 // we use the dispatch method which takes one argument: i.e your Action Object;
-store.dispatch(action);
+// store.dispatch(action); we got rid of the varibale action so our code would be short and sweet.
+
+console.log('New Name will be Josiah!==>', store.getState());
+
 
 
 

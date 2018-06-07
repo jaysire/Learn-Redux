@@ -11,3 +11,10 @@ function add (a, b) {
 // There are no side effects; i.e it doesnt rely on variables defined above it and:
 // it does not change any values outside of itself. i.e it dosent update or use any varaibles.
 // Pure funcs cant have any asynchronous requests: no promises or callbacks.
+
+
+// Examles of Non-Pure Functions:
+var a = 3;
+function add (b) {
+  return a + b;
+};

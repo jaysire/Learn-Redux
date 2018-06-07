@@ -35,17 +35,22 @@ function add (a, b) {
 };
 
 function changeProp (obj) {
-  // This is the Correct way to upate a pure function: We return the obj & only change the name in the func but Not outside it.
+  // obj.name = 'jack',      ***WE CANNOT UPDATE THE OBJ LIKE SO***
+ // return obj;
+
+  // This is the Correct way to upate a pure function/ Obj: 
+  // We return the obj & only change the name in the func but Not outside it.
   return{
     ...obj,
     name: 'jack'
   }
-  // obj.name = 'jack' WE CANNOT UPDATE THE OBJ LIKE SO
-// return obj;
-}
+};
 
-var res = changeProp({
+var startingValue = {
   name: 'Josiah',
   age: 26
-});
+};
+
+var res = changeProp (startingValue);
+console.log(startingValue);
 console.log(res);

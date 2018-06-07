@@ -12,12 +12,10 @@ console.log('Starting Redux example now! Get ready to RRRUUUMMMMBBBBBLLLLLEEEE!!
 // Our job is to put these two actions together and return soemthing new.
 // We also want to have a defaul State incase there is nothing passed.
 
-// THIS IS THE ES5 SYNTAX
+// THIS IS THE ES5 SYNTAX:
 
-const reducer = (state) => {
+const reducer = (state, action) => {
   // below is the syntax used to create a default for an argument tht gets passed into a function.
   // this way we either use the State Value that gets passed in or the obj that gets set to the State.
   state = state || {name: 'Anonymous'}
 };
-
-const store = redux.createStore(reducer);

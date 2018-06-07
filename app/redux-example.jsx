@@ -13,8 +13,16 @@ function add (a, b) {
 // Pure funcs cant have any asynchronous requests: no promises or callbacks.
 
 
-// Examles of Non-Pure Functions:
+// Examles of Non-Pure Functions: (it relies on variables outside itself/the func and a could change thus not always get the same output);
+
 var a = 3;
 function add (b) {
   return a + b;
+};
+
+// It updates values outiside of itself/ the function. It updates the result variable defined outside the function.
+var result;
+function add (a, b) {
+  result = a + b;
+  return result;
 };

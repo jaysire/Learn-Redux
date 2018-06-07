@@ -5,7 +5,7 @@ console.log('Starting Redux example now! Get ready to RRRUUUMMMMBBBBBLLLLLEEEE!!
 // *** DISPATCHING & HANDLING ACTIONS ***;
 
 const reducer = (state = {name: 'Anonymous'}, action) => {
-  console.log('This is our NEW ACTION!=>>', action);
+  // console.log('This is our NEW ACTION!=>>', action);
   switch (action.type) {
     case 'CHANGE_NAME':
       return {

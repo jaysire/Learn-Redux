@@ -16,14 +16,14 @@ const reducer = (state = stateDefault, action) => {
         ...state,
         searchText: action.searchText
       }
-      return state;
-  }
-  // case 'CHANGE_TEXT':
-  // return {
-  //   ...state,
-  //   newText: action.newText
+    case 'CHANGE_SEARCH_TEXT': 
+      return {
+      ...state,
+    newText: action.newText
 };
-
+return state;
+  }
+}
 const store = redux.createStore(reducer);
 
 console.log('currentState', store.getState());
@@ -36,11 +36,3 @@ store.dispatch({
   searchText: 'work'
 });
 console.log('searchText should print "work"=>>', store.getState());
-
-
-// store.dispatch({
-//   type: 'CHANGE_TEXT',
-//   newText: 'Hello Salt Lake City!'
-//   });
-
-// console.log('newText should print out!=>> Hello Salt Lake City!)', store.getState());

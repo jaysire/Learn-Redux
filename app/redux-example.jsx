@@ -1,6 +1,6 @@
 const redux = require('redux');
 
-console.log('Starting redux examples!');
+console.log('Starting redux examples below!!');
 
 const reducer = (state = {name: 'Anonymous'}, action) => {
   switch (action.type) {

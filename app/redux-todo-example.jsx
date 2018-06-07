@@ -1,6 +1,6 @@
 const redux = require('redux');
 
-console.log('Here we go again!! Redux-todo-example! baby!!');
+console.log('Here we go again!! Redux-todo-example!!');
 
 // since we need to pass more than one argument, we can start by saving it to a variable and passing the variable instead thru our reducer func
 const stateDefault = {
@@ -16,9 +16,12 @@ const reducer = (state = stateDefault, action) => {
         ...state,
         searchText: action.searchText
       }
-    default:
       return state;
   }
+  // case 'CHANGE_TEXT':
+  // return {
+  //   ...state,
+  //   newText: action.newText
 };
 
 const store = redux.createStore(reducer);
@@ -33,3 +36,11 @@ store.dispatch({
   searchText: 'work'
 });
 console.log('searchText should print "work"=>>', store.getState());
+
+
+// store.dispatch({
+//   type: 'CHANGE_TEXT',
+//   newText: 'Hello Salt Lake City!'
+//   });
+
+// console.log('newText should print out!=>> Hello Salt Lake City!)', store.getState());

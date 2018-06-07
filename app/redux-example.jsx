@@ -2,62 +2,22 @@ var redux = require('redux');
 
 console.log('Starting Redux example now! Get ready to RRRUUUMMMMBBBBBLLLLLEEEE!!!!');
 
-// Pure Functions
-function add(a, b) {
-	return a + b;
-}
+// reducer: takes existing state and the action as arguments and computes the New State.
+// i.e. if you triger an action to change the search text, you would modify the state with the action & would return the New State.
 
-// its always going to return the same result given the same input.
-// There are no side effects; i.e it doesnt rely on variables defined above it and:
-// it does not change any values outside of itself. i.e it dosent update or use any varaibles.
-// Pure funcs cant have any asynchronous requests: no promises or callbacks.
-// They are NOT allowed to update the values that get passed in/ through them;
-// ***N/B*** This matters only to Objects and Arrays that get passed by reference and not by value.
+// a basic reducer is just a function.
+// the first parameter/ argument passed is the initial/existing state before the action was triggered.
+// that means the state would have our searched text before we trigger a change to that text.
+// The Second parameter is the Action that was triggered.
+// Our job is to put these two actions together and return soemthing new.
+// We also want to have a defaul State incase there is nothing passed.
 
-// Examles of Non-Pure Functions: (it relies on variables outside itself/the func and a could change thus not always get the same output);
+// THIS IS THE ES5 SYNTAX
 
-var a = 3;
-function add(b) {
-	return a + b;
-}
-
-// It updates values outiside of itself/ the function. It updates the result variable defined outside the function.
-var result;
-function add(a, b) {
-	result = a + b;
-	return result;
-}
-
-// Given the same input, we're NOT always going to get the same output; since the output depends on the current seconds as par our function.
-function add(a, b) {
-	return a + b + new Date().getSeconds();
-}
-
-function changeProp(obj) {
-	// This is the Correct way to upate a pure function/ Obj:
-	// We return the obj & only change the name in the func but Not outside it.
-	return {
-		...obj,
-		name: 'jack',
-  };
-  	// obj.name = 'jack',      ***WE CANNOT UPDATE THE OBJ LIKE SO***
-	// return obj;
-}
-
-var startingValue = {
-	name: 'Josiah',
-	age: 26,
+const reducer = (state) => {
+  // below is the syntax used to create a default for an argument tht gets passed into a function.
+  // this way we either use the State Value that gets passed in or the obj that gets set to the State.
+  state = state || {name: 'Anonymous'}
 };
 
-var res = changeProp(startingValue);
-
-console.log(startingValue);
-console.log(res);
-// this proves/ show we updated the obj values inside the function but the var outside remained the same:
-// this is what makes this is a pure function.
-
-// RECAP/ SUMMARY
-// 1. Same output with  same input;
-// 2. NO Side-Effects: i.e. it cant take variabes in the global state and it shouldn't be updating any variables outside it-self.
-// 3. Avoid Promises & asynchronous calls/callback functions. & Funcs should be synchronous:
-// i.e. they dont do any IO requests like accessing a database or making a http request to a 3rd party API.
+const store = redux.createStore(reducer);

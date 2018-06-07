@@ -14,7 +14,9 @@ const reducer = (state = {name: 'Anonymous'}, action) => {
   }
 };
 
-const store = redux.createStore(reducer);
+const store = redux.createStore(reducer, redux.compose(
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+));
 
 // Subscribe to Changes
 const unsubscribe = store.subscribe(() => {

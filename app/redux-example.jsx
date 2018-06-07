@@ -14,8 +14,16 @@ console.log('Starting Redux example now! Get ready to RRRUUUMMMMBBBBBLLLLLEEEE!!
 
 // THIS IS THE ES5 SYNTAX:
 
-const reducer = (state, action) => {
-  // below is the syntax used to create a default for an argument tht gets passed into a function.
-  // this way we either use the State Value that gets passed in or the obj that gets set to the State.
-  state = state || {name: 'Anonymous'}
+// const reducer = (state, action) => {
+//   // below is the syntax used to create a default for an argument tht gets passed into a function.
+//   // this way we either use the State Value that gets passed in or the obj that gets set to the State.
+//   state = state || {name: 'Anonymous'}
+// };
+// const store = redux.createStore(reducer);
+
+// THIS IS THE ES6 SYNTAX:
+
+const reducer = (state = {name: 'Anonymous'}, action) => {
+  // state = state || {name: 'Anonymous'}
 };
+const store = redux.createStore(reducer);

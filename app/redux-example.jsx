@@ -26,3 +26,8 @@ function add (a, b) {
   result = a + b;
   return result;
 };
+
+// Given the same input, we're NOT always going to get the same output; since the output depends on the current seconds as par our function.
+function add (a, b) {
+  return a + b + new Date().getSeconds()
+};

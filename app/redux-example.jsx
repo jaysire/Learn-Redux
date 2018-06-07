@@ -24,6 +24,15 @@ console.log('Starting Redux example now! Get ready to RRRUUUMMMMBBBBBLLLLLEEEE!!
 // THIS IS THE ES6 SYNTAX:
 
 const reducer = (state = {name: 'Anonymous'}, action) => {
-  // state = state || {name: 'Anonymous'}
+  // state = state || {name: 'Anonymous'} - ES5 Syntax.
+  return state;
 };
 const store = redux.createStore(reducer);
+
+// Our reducer satisfies TWO conditions:
+// 1. It has a defaul State for when the app is just starting/ initializing and in our case we have an Obj
+// 2. It returns a state even if there is no action or if its  an action it doesn't recognize.
+
+// fetch our sate;
+const currentState = store.getState();
+console.log('currentState', currentState);

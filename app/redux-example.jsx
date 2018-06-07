@@ -7,17 +7,19 @@ console.log('Starting Redux example now! Get ready to RRRUUUMMMMBBBBBLLLLLEEEE!!
 // reducer is called by Redux and takes two arguments and then it gets passed into our store; It requires this function/ the reducer.
 // We also need to add a default as we initialize our store; in our case we'll set our default to anonymous;
 // this is the syntax to creating default arguments/ parameters that get passed thru our reducer/ pure func.
-const reducer = (state, action) => {
-  state = state || {name: 'Anonymous'};
+
+// create simple reducer;
+const reducer = (state = {name: 'Anonymous'}, action) => {
+  // state = state || {name: 'Anonymous'};
+
+  return state;
 };
+// create Store;
 const store = redux.createStore(reducer);
 
-
-
-
-
-
-
+// get/ fetch the state;
+const currentState = store.getState();
+console.log('currentState', currentState);
 
 
 // reducer: takes existing state and the action as arguments and computes the New State.

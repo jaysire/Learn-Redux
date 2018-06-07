@@ -11,6 +11,8 @@ function add (a, b) {
 // There are no side effects; i.e it doesnt rely on variables defined above it and:
 // it does not change any values outside of itself. i.e it dosent update or use any varaibles.
 // Pure funcs cant have any asynchronous requests: no promises or callbacks.
+// They are NOT allowed to update the values that get passed in/ through them; 
+// ***N/B*** This matters only to Objects and Arrays that get passed by reference and not by value.
 
 
 // Examles of Non-Pure Functions: (it relies on variables outside itself/the func and a could change thus not always get the same output);
@@ -31,3 +33,19 @@ function add (a, b) {
 function add (a, b) {
   return a + b + new Date().getSeconds()
 };
+
+function changeProp (obj) {
+  // This is the Correct way to upate a pure function: We return the obj & only change the name in the func but Not outside it.
+  return{
+    ...obj,
+    name: 'jack'
+  }
+  // obj.name = 'jack' WE CANNOT UPDATE THE OBJ LIKE SO
+// return obj;
+}
+
+var res = changeProp({
+  name: 'Josiah',
+  age: 26
+});
+console.log(res);

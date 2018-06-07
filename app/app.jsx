@@ -8,10 +8,10 @@ $(document).foundation();
 // App css
 require('style!css!sass!applicationStyles')
 
-ReactDOM.render(
-  <p>This is our Boilerplate 3 Project template for the new application project.</p>,
-  document.getElementById('app')
-);
+// ReactDOM.render(
+//   <p>This is our Boilerplate 3 Project template for the new application project.</p>,
+//   document.getElementById('app')
+// );
 
 require('./redux-example.jsx');
 

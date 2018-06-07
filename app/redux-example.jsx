@@ -16,12 +16,13 @@ const reducer = (state = {name: 'Anonymous'}, action) => {
 
 const store = redux.createStore(reducer);
 
-// UnSubscribe to Changes
+// Subscribe to Changes
 const unsubscribe = store.subscribe(() => {
   const state = store.getState();
 
   console.log('Name is', state.name);
 });
+// unsubscribe();
 
 const currentState = store.getState();
 console.log('CurrentState', currentState);
@@ -30,8 +31,6 @@ store.dispatch({
   type: 'CHANGE_NAME',
   name: 'Ras Joh'
 });
-
-unsubscribe();
 
 store.dispatch({
   type: 'CHANGE_NAME',

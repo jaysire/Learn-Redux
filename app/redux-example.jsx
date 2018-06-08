@@ -28,7 +28,12 @@ const reducer = (state = stateDefault, action) => {
 						hobby: action.hobby,
 					},
 				],
-			};
+      };
+    case 'REMOVE_HOBBY':
+      return {
+        ...state,
+        hobbies: state.hobbies.filter((hobby) => hobby.id !== action.id)
+      };
 		case 'ADD_MOVIE':
 			return {
 				...state,
@@ -46,7 +51,8 @@ const reducer = (state = stateDefault, action) => {
 	}
 };
 
-const store = redux.createStore(reducer, redux.compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
+const store = redux.createStore(reducer, redux.compose(
+  window.devToolsExtension ? window.devToolsExtension() : f => f));
 
 // Subscribe to Changes:
 // The Subscribe method returns a unsubscribe function that we can initlize and save the value to it and call/ invoke it when we need to unsubscribe to actions.
@@ -74,8 +80,18 @@ store.dispatch({
 });
 
 store.dispatch({
+	type: 'ADD_HOBBY',
+	hobby: 'Swimming',
+});
+
+store.dispatch({
 	type: 'CHANGE_NAME',
 	name: 'Mildred',
+});
+
+store.dispatch({
+	type: 'REMOVE_HOBBY',
+	id: 2,
 });
 
 store.dispatch({

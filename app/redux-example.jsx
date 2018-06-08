@@ -1,14 +1,32 @@
 const redux = require('redux');
 
-console.log('Starting redux examples below!!');
+console.log('Starting redux example tutorials below!!');
 
-const reducer = (state = {name: 'Anonymous'}, action) => {
+// when initializing our default we leave the hobbies array empty. No need initializing it with values since we will update them later in our code;
+const stateDefault = {
+  name: 'Anonymous',
+  hobbies: [],
+};
+
+var nextHobbyId = 1;
+const reducer = (state = stateDefault, action) => {
   switch (action.type) {
     case 'CHANGE_NAME':
-    return {
+      return {
       ...state,
       name: action.name
     };
+    case 'ADD_HOBBY':
+      return {
+        ...state,
+        hobbies: [
+          ...state.hobbies,
+          {
+            id: nextHobbyId++,
+            hobby: action.hobby
+          }
+        ]
+      }
     default:
       return state;
   }
@@ -34,6 +52,11 @@ console.log('CurrentState', currentState);
 store.dispatch({
   type: 'CHANGE_NAME',
   name: 'Ras Joh'
+});
+
+store.dispatch({
+  type: 'ADD_HOBBY',
+  hobby: 'Camping'
 });
 
 store.dispatch({

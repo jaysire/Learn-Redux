@@ -28,12 +28,12 @@ const reducer = (state = stateDefault, action) => {
 						hobby: action.hobby,
 					},
 				],
-      };
-    case 'REMOVE_HOBBY':
-      return {
-        ...state,
-        hobbies: state.hobbies.filter((hobby) => hobby.id !== action.id)
-      };
+			};
+		case 'REMOVE_HOBBY':
+			return {
+				...state,
+				hobbies: state.hobbies.filter(hobby => hobby.id !== action.id),
+			};
 		case 'ADD_MOVIE':
 			return {
 				...state,
@@ -45,19 +45,18 @@ const reducer = (state = stateDefault, action) => {
 						genre: action.genre,
 					},
 				],
-      };
-      case 'REMOVE_MOVIE':
-      return {
-        ...state,
-        movies: state.movies.filter((movie) => movie.id !== action.id)
-      };
+			};
+		case 'REMOVE_MOVIE':
+			return {
+				...state,
+				movies: state.movies.filter(movie => movie.id !== action.id),
+			};
 		default:
 			return state;
 	}
 };
 
-const store = redux.createStore(reducer, redux.compose(
-  window.devToolsExtension ? window.devToolsExtension() : f => f));
+const store = redux.createStore(reducer, redux.compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
 
 // Subscribe to Changes:
 // The Subscribe method returns a unsubscribe function that we can initlize and save the value to it and call/ invoke it when we need to unsubscribe to actions.

@@ -45,7 +45,12 @@ const reducer = (state = stateDefault, action) => {
 						genre: action.genre,
 					},
 				],
-			};
+      };
+      case 'REMOVE_MOVIE':
+      return {
+        ...state,
+        movies: state.movies.filter((movie) => movie.id !== action.id)
+      };
 		default:
 			return state;
 	}
@@ -86,7 +91,7 @@ store.dispatch({
 
 store.dispatch({
 	type: 'CHANGE_NAME',
-	name: 'Mildred',
+	name: 'Miriam',
 });
 
 store.dispatch({
@@ -98,4 +103,15 @@ store.dispatch({
 	type: 'ADD_MOVIE',
 	title: 'Rose Red',
 	genre: 'Horror',
+});
+
+store.dispatch({
+	type: 'ADD_MOVIE',
+	title: 'Weddig Crashers',
+	genre: 'Comedy',
+});
+
+store.dispatch({
+	type: 'REMOVE_MOVIE',
+	id: 1,
 });

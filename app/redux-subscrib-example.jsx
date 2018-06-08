@@ -18,8 +18,7 @@ const store = redux.createStore(reducer, redux.compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
 
-// Subscribe to Changes:
-// The Subscribe method returns a unsubscribe function that we can initlize and save the value to it and call/ invoke it when we need to unsubscribe to actions.
+// Subscribe to Changes
 const unsubscribe = store.subscribe(() => {
   const state = store.getState();
 

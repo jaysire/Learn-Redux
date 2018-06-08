@@ -26,7 +26,8 @@ const reducer = (state = stateDefault, action) => {
 				...state,
 				searchText: action.searchText,
 			};
-			return state;
+		default:
+      return state;
 	}
 };
 
@@ -42,7 +43,7 @@ var unsubscribe = store.subscribe(() => {
 	document.getElementById('app').innerHTML = state.searchText;
 });
 
-// console.log('currentState', store.getState());
+console.log('currentState', store.getState());
 
 // dispatch our action by passing in the action obj.
 // Every Actions MUST have 'type' property.

@@ -25,7 +25,17 @@ const reducer = (state = stateDefault, action) => {
 			return {
 				...state,
 				searchText: action.searchText,
-			};
+      };
+    case 'CHANGE_SEARCH_TEXT':
+      return {
+      ...state,
+      searchText: action.searchText,
+    }
+    case 'CHANGE_SEARCH_TEXT':
+      return {
+        ...state,
+        searchText: action.searchText,
+    }
 		default:
       return state;
 	}
@@ -49,18 +59,28 @@ console.log('currentState', store.getState());
 // Every Actions MUST have 'type' property.
 store.dispatch({
 	type: 'CHANGE_SEARCH_TEXT',
-	searchText: 'Work',
+	searchText: 'Real Madrid',
 });
 // console.log('searchText should print "work"=>>', store.getState());
 
 store.dispatch({
 	type: 'CHANGE_SEARCH_TEXT',
-	searchText: 'Salt Lake City',
+	searchText: 'Nairobi City',
 });
 
 // unsubscribe();
 
 store.dispatch({
 	type: 'CHANGE_SEARCH_TEXT',
-	searchText: 'Makaveli',
+	searchText: 'Maradona',
+});
+
+store.dispatch({
+	type: 'CHANGE_SEARCH_TEXT',
+	searchText: 'Gucci',
+});
+
+store.dispatch({
+	type: 'CHANGE_SEARCH_TEXT',
+	searchText: 'Chelsea FC',
 });

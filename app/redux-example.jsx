@@ -80,17 +80,17 @@ console.log('currentState', currentState);
 
 store.dispatch({
   type: 'CHANGE_NAME',
-  name: 'Andrew'
+  name: 'Josiah'
 });
 
 store.dispatch({
   type: 'ADD_HOBBY',
-  hobby: 'Running'
+  hobby: 'Camping'
 });
 
 store.dispatch({
   type: 'ADD_HOBBY',
-  hobby: 'Walking'
+  hobby: 'Soccer'
 });
 
 store.dispatch({

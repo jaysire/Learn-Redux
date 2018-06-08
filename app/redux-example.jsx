@@ -100,13 +100,13 @@ store.dispatch({
 
 store.dispatch({
   type: 'CHANGE_NAME',
-  name: 'Emily'
+  name: 'Miriam'
 });
 
 store.dispatch({
   type: 'ADD_MOVIE',
-  title: 'Mad Max',
-  genre: 'Action'
+  title: 'Rose Red',
+  genre: 'Horror'
 });
 
 store.dispatch({

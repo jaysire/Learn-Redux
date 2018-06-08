@@ -1,73 +1,72 @@
-const redux = require('redux');
+var redux = require('redux');
 
-console.log('Starting redux tutorial example below!');
+console.log('Starting redux example');
 
-const stateDefault = {
+var stateDefault = {
   name: 'Anonymous',
   hobbies: [],
   movies: []
 };
+var nextHobbyId = 1;
+var nextMovieId = 1;
 
-const nextHobbyId = 1;
-const nextMovieId = 1;
-
-const nameReducer = (state = 'Anonymous', action) => {
-	switch (action.type) {
-		case 'CHANGE_NAME':
-			return action.name;
-		default:
-			return state;
-	}
+var nameReducer = (state = 'Anonymous', action) => {
+  switch (action.type) {
+    case 'CHANGE_NAME':
+      return action.name;
+    default:
+      return state;
+  };
 };
 
-const hobbiesReducer = (state = [], action) => {
-	switch (action.type) {
-		case 'ADD_HOBBY':
-		return [
-			...state,
-			{
-				id: nextHobbyId++,
-				hobby: action.hobby
-			}
-		];
-	case 'REMOVE_HOBBY':
-		return state.filter((hobby) => hobby.id !== action.id)
-	default:
-		return state;
-	}
-};
-
-const moviesRedcuer = (sate = [], action) => {
-	switch (action.type) {
-		case 'ADD_MOVIE':
-			return [
+var hobbiesReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_HOBBY':
+      return [
         ...state,
-          {
-            id: nextMovieId++,
-            title: action.title,
-						genre: action.genre,
-					}		
-			]
-		case 'REMOVE_MOVIE':
-			return state.filter((movie) => movie.id !== action.id)
-			default:
-				return state;
-	}
+        {
+          id: nextHobbyId++,
+          hobby: action.hobby
+        }
+      ];
+    case 'REMOVE_HOBBY':
+      return state.filter((hobby) => hobby.id !== action.id);
+    default:
+      return state;
+  }
 };
 
-const reducer = redux.combineReducers({
-	name: nameReducer,
-	hobbies: hobbiesReducer,
-	movies: moviesRedcuer
-})
+var moviesReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_MOVIE':
+      return [
+        ...state,
+        {
+          id: nextMovieId++,
+          title: action.title,
+          genre: action.genre
+        }
+      ]
+    case 'REMOVE_MOVIE':
+      return state.filter((movie) => movie.id !== action.id)
+    default:
+      return state;
+  }
+};
 
-const store = redux.createStore(reducer, redux.compose(
+var reducer = redux.combineReducers({
+  name: nameReducer,
+  hobbies: hobbiesReducer,
+  movies: moviesReducer
+});
+
+var store = redux.createStore(reducer, redux.compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
 
 // Subscribe to changes
-const unsubscribe = store.subscribe(() => {
-  const state = store.getState();
+var unsubscribe = store.subscribe(() => {
+  var state = store.getState();
 
   console.log('Name is', state.name);
   document.getElementById('app').innerHTML = state.name;
@@ -76,22 +75,22 @@ const unsubscribe = store.subscribe(() => {
 });
 // unsubscribe();
 
-const currentState = store.getState();
+var currentState = store.getState();
 console.log('currentState', currentState);
 
 store.dispatch({
   type: 'CHANGE_NAME',
-  name: 'Josiah'
+  name: 'Andrew'
 });
 
 store.dispatch({
   type: 'ADD_HOBBY',
-  hobby: 'Soccer'
+  hobby: 'Running'
 });
 
 store.dispatch({
   type: 'ADD_HOBBY',
-  hobby: 'Camping'
+  hobby: 'Walking'
 });
 
 store.dispatch({
@@ -101,13 +100,13 @@ store.dispatch({
 
 store.dispatch({
   type: 'CHANGE_NAME',
-  name: 'Miriam'
+  name: 'Emily'
 });
 
 store.dispatch({
   type: 'ADD_MOVIE',
-  title: 'Rose Red',
-  genre: 'Horror'
+  title: 'Mad Max',
+  genre: 'Action'
 });
 
 store.dispatch({

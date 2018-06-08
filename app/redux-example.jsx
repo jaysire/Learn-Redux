@@ -11,7 +11,7 @@ const stateDefault = {
 
 var nextMovieId = 1;
 var nextHobbyId = 1;
-const reducer = (state = stateDefault, action) => {
+const oldReducer = (state = stateDefault, action) => {
 	switch (action.type) {
 		case 'CHANGE_NAME':
 			return {
@@ -55,6 +55,21 @@ const reducer = (state = stateDefault, action) => {
 			return state;
 	}
 };
+
+const nameReducer = (state = 'Anonymous',action) => {
+  switch (action.type) {
+    case 'CHANGE_NAME':
+      return action.name;
+    default:
+      return state;
+      // this was we only return what the function cares about. 
+      // We return a string & our code is simplified.
+  }
+};
+
+const reducer = redux.combineReducers({
+  name: nameReducer
+})
 
 const store = redux.createStore(reducer, redux.compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
 

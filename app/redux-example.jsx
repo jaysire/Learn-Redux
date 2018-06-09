@@ -1,11 +1,11 @@
-var redux = require('redux');
-var axios = require('axios');
+const redux = require('redux');
+const axios = require('axios');
 
 console.log('Starting redux example');
 
 // Name Reducer amd Action Generators:
 // ----------------------------------
-var nameReducer = (state = 'Anonymous', action) => {
+const nameReducer = (state = 'Anonymous', action) => {
 	switch (action.type) {
 		case 'CHANGE_NAME':
 			return action.name;
@@ -26,9 +26,9 @@ const changeName = name => {
 
 // Hobbies Reducer amd Action Generators:
 // -------------------------------------
-var nextHobbyId = 1;
+let nextHobbyId = 1;
 
-var hobbiesReducer = (state = [], action) => {
+const hobbiesReducer = (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_HOBBY':
 			return [
@@ -62,9 +62,9 @@ const removeHobby = id => {
 // Movies Reducer amd Action Generators:
 // -------------------------------------
 
-var nextMovieId = 1;
+let  nextMovieId = 1;
 
-var moviesReducer = (state = [], action) => {
+const moviesReducer = (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_MOVIE':
 			return [
@@ -144,7 +144,7 @@ const fetchLocation = () => {
 
 // Combined - Reducer function:
 // ----------------
-var reducer = redux.combineReducers({
+const reducer = redux.combineReducers({
 	name: nameReducer,
 	hobbies: hobbiesReducer,
 	movies: moviesReducer,
@@ -153,12 +153,12 @@ var reducer = redux.combineReducers({
 
 // Create Store:
 // ------------
-var store = redux.createStore(reducer, redux.compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
+const store = redux.createStore(reducer, redux.compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
 
 // Subscribe to changes:
 // --------------------
-var unsubscribe = store.subscribe(() => {
-	var state = store.getState();
+const unsubscribe = store.subscribe(() => {
+	const state = store.getState();
 
 	console.log('Name is', state.name);
 	document.getElementById('app').innerHTML = state.name;
@@ -170,7 +170,7 @@ var unsubscribe = store.subscribe(() => {
 
 // Get/ Fetch inital/current state:
 // -------------------------------
-var currentState = store.getState();
+const currentState = store.getState();
 console.log('currentState', currentState);
 
 // Initialize/ Dispatch Actions:

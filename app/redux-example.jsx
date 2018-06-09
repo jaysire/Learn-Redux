@@ -91,6 +91,12 @@ const addMovie = (title, genre) => {
 	};
 }
 
+const removeMovie = (id) => {
+	return {
+		type: 'REMOVE_MOVIE',
+		id
+	}
+}
 // Reducer function:
 // ----------------
 var reducer = redux.combineReducers({
@@ -142,7 +148,4 @@ store.dispatch(addMovie('Rose Red', 'Horror'));
 
 store.dispatch(addMovie('Wedding Crashers', 'Comedy'));
 
-store.dispatch({
-  type: 'REMOVE_MOVIE',
-  id: 1
-});
+store.dispatch(removeMovie(1));

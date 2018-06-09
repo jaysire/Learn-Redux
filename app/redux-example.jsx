@@ -134,7 +134,7 @@ console.log('currentState', currentState);
 
 // Initialize/ Dispatch Actions:
 // ----------------------------
-store.dispatch(changeName('Josiah'));
+store.dispatch(changeName('Ras Joh'));
 
 store.dispatch(addHobby('Camping'));
 

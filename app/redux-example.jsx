@@ -97,12 +97,24 @@ const removeMovie = (id) => {
 		id
 	}
 }
-// Reducer function:
+
+
+// Map Reducer function & Action Generators:
+// ----------------------------------------
+const mapReducer = (state = {isFetching: false, url: undefined}, action) => {
+  switch (action,type) {
+    
+  }
+}
+
+
+// Combined - Reducer function:
 // ----------------
 var reducer = redux.combineReducers({
   name: nameReducer,
   hobbies: hobbiesReducer,
-  movies: moviesReducer
+  movies: moviesReducer,
+  map: mapReducer
 });
 
 

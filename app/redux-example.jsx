@@ -2,6 +2,7 @@ var redux = require('redux');
 
 console.log('Starting redux example');
 
+
 // Name Reducer amd Action Generators:
 // ----------------------------------
 var nameReducer = (state = 'Anonymous', action) => {
@@ -59,17 +60,25 @@ var moviesReducer = (state = [], action) => {
   }
 };
 
+
+// Reducer function:
+// ----------------
 var reducer = redux.combineReducers({
   name: nameReducer,
   hobbies: hobbiesReducer,
   movies: moviesReducer
 });
 
+
+// Create Store:
+// ------------
 var store = redux.createStore(reducer, redux.compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
 
-// Subscribe to changes
+
+// Subscribe to changes:
+// --------------------
 var unsubscribe = store.subscribe(() => {
   var state = store.getState();
 
@@ -78,11 +87,17 @@ var unsubscribe = store.subscribe(() => {
 
   console.log('New state', store.getState());
 });
+
 // unsubscribe();
 
+
+// Get/ Fetch inital/current state:
+// -------------------------------
 var currentState = store.getState();
 console.log('currentState', currentState);
 
+// Initialize/ Dispatch Actions:
+// ----------------------------
 store.dispatch({
   type: 'CHANGE_NAME',
   name: 'Josiah'

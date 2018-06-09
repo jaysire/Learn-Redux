@@ -116,8 +116,33 @@ const mapReducer = (state = {isFetching: false, url: undefined}, action) => {
     default:
       return state;
   }
-}
+};
 
+const startLocationFetch = () => {
+  return {
+    type: 'START_LOCATION_FETCH'
+  }
+};
+
+const completeLocationFetch = (url) => {
+  return {
+    type: 'COMPLETE_LOCATION_FETCH',
+    url
+  }
+};
+
+// this is how we tell the app things are kicking - off. This is the ON - Switch:
+// turn on our complete location fetch action/ function.
+const fetchLocation = () => {
+  store.dispatch(startLocationFetch());
+
+  axios.get('http://ipinfo.io').then(function (res) {
+    const loc = res.data.loc;
+    const baseUrl = 'http://maps.google.come?q='
+
+    store.dispatch(completeLocationFetch(baseUrl) + loc);
+  })
+}
 
 // Combined - Reducer function:
 // ----------------

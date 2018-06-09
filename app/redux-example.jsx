@@ -14,6 +14,16 @@ var nameReducer = (state = 'Anonymous', action) => {
   };
 };
 
+// simple functions that take all the parameters you need to generate your Action & they return an Object with the 'TYPE' set on it.
+// i.e. when returning the obj, start by setting the obj type first and parameters passed follow below it.
+// Our func doesnt need the TYPE to be passed as an argument (we set the type when returning the new obj) so in our case it we only pass the NAME parameter since its all we need in this case.
+const changeName = (name) => {
+	return {
+		type: 'CHANGE_NAME',
+		name
+	}
+
+}
 
 // Hobbies Reducer amd Action Generators:
 // -------------------------------------
@@ -98,10 +108,7 @@ console.log('currentState', currentState);
 
 // Initialize/ Dispatch Actions:
 // ----------------------------
-store.dispatch({
-  type: 'CHANGE_NAME',
-  name: 'Josiah'
-});
+store.dispatch(changeName('Josiah'));
 
 store.dispatch({
   type: 'ADD_HOBBY',
@@ -118,10 +125,7 @@ store.dispatch({
   id: 2
 });
 
-store.dispatch({
-  type: 'CHANGE_NAME',
-  name: 'Miriam'
-});
+store.dispatch(changeName('Miriam'));
 
 store.dispatch({
   type: 'ADD_MOVIE',

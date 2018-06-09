@@ -34,9 +34,9 @@ var hobbiesReducer = (state = [], action) => {
 				...state,
 				{
 					id: nextHobbyId++,
-					hobby: action.hobby,
-				},
-			];
+					hobby: action.hobby
+				}
+			]
 		case 'REMOVE_HOBBY':
 			return state.filter(hobby => hobby.id !== action.id);
 		default:
@@ -71,9 +71,9 @@ var moviesReducer = (state = [], action) => {
 				{
 					id: nextMovieId++,
 					title: action.title,
-					genre: action.genre,
-				},
-			];
+					genre: action.genre
+				}
+			]
 		case 'REMOVE_MOVIE':
 			return state.filter(movie => movie.id !== action.id);
 		default:
@@ -99,7 +99,7 @@ const removeMovie = id => {
 // Map Reducer function & Action Generators:
 // ----------------------------------------
 const mapReducer = (state = { isFetching: false, url: undefined }, action) => {
-	switch ((action, type)) {
+	switch ((action.type)) {
 		case 'START_LOCATION_FETCH':
 			return {
 				isFetching: true,

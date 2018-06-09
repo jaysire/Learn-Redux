@@ -46,6 +46,13 @@ var hobbiesReducer = (state = [], action) => {
   }
 };
 
+const addHobby = (hobby) => {
+	return {
+		type: 'ADD_HOBBY',
+		hobby
+	}
+}
+
 
 // Movies Reducer amd Action Generators:
 // -------------------------------------
@@ -110,10 +117,7 @@ console.log('currentState', currentState);
 // ----------------------------
 store.dispatch(changeName('Josiah'));
 
-store.dispatch({
-  type: 'ADD_HOBBY',
-  hobby: 'Camping'
-});
+store.dispatch(addHobby('Camping'));
 
 store.dispatch({
   type: 'ADD_HOBBY',

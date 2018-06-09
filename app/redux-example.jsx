@@ -83,6 +83,13 @@ var moviesReducer = (state = [], action) => {
   }
 };
 
+const addMovie = (title, genre) => {
+	return {
+		type: 'ADD_MOVIE',
+		title,
+		genre 
+	};
+}
 
 // Reducer function:
 // ----------------
@@ -131,17 +138,9 @@ store.dispatch(removeHobby(2));
 
 store.dispatch(changeName('Miriam'));
 
-store.dispatch({
-  type: 'ADD_MOVIE',
-  title: 'Rose Red',
-  genre: 'Horror'
-});
+store.dispatch(addMovie('Rose Red', 'Horror'));
 
-store.dispatch({
-  type: 'ADD_MOVIE',
-  title: 'Wedding Crashers',
-  genre: 'Comedy'
-});
+store.dispatch(addMovie('Wedding Crashers', 'Comedy'));
 
 store.dispatch({
   type: 'REMOVE_MOVIE',

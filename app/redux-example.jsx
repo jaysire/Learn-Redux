@@ -53,6 +53,12 @@ const addHobby = (hobby) => {
 	}
 }
 
+const removeHobby = (id) => {
+	return {
+		type: 'REMOVE_HOBBY',
+		id
+	}
+}
 
 // Movies Reducer amd Action Generators:
 // -------------------------------------
@@ -119,15 +125,9 @@ store.dispatch(changeName('Josiah'));
 
 store.dispatch(addHobby('Camping'));
 
-store.dispatch({
-  type: 'ADD_HOBBY',
-  hobby: 'Soccer'
-});
+store.dispatch(addHobby('Soccer'));
 
-store.dispatch({
-  type: 'REMOVE_HOBBY',
-  id: 2
-});
+store.dispatch(removeHobby(2));
 
 store.dispatch(changeName('Miriam'));
 

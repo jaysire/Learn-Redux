@@ -3,6 +3,10 @@ const axios = require('axios');
 
 console.log('Starting redux example');
 
+var actions = require('./actions/index');
+
+var store = require('./store/configureStore').configure();
+
 // Subscribe to changes:
 // --------------------
 

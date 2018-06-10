@@ -1,8 +1,9 @@
 {
-  "tslint.enable": false,
-  "eslint.enable": false,
+  "tslint.enable"false,
+  "eslint.enable": true,
   "files.autoSave": "afterDelay",
   "auto-close-tag.fullMode": true,
   "eslint.autoFixOnSave": true,
-  "eslint.run": "onType"
+  "eslint.run": "onType",
+  "jshint.enable": false
 }

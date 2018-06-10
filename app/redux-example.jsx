@@ -2,6 +2,7 @@ const redux = require('redux');
 const axios = require('axios');
 
 console.log('Starting redux example');
+
 // Name Reducer amd Action Generators:
 // ----------------------------------
 
@@ -28,8 +29,10 @@ const removeHobby = id => {
 		id,
 	};
 };
+
 // Movies Reducer amd Action Generators:
 // -------------------------------------
+
 const addMovie = (title, genre) => {
 	return {
 		type: 'ADD_MOVIE',
@@ -47,6 +50,7 @@ const removeMovie = id => {
 
 // Map Reducer function & Action Generators:
 // ----------------------------------------
+
 const mapReducer = (state = { isFetching: false, url: undefined }, action) => {
 	switch ((action.type)) {
 		case 'START_LOCATION_FETCH':
@@ -79,6 +83,7 @@ const completeLocationFetch = url => {
 
 // this is how we tell the app things are kicking - off. This is the ON - Switch:
 // turn on our complete location fetch action/ function.
+
 const fetchLocation = () => {
 	store.dispatch(startLocationFetch());
 
@@ -92,6 +97,7 @@ const fetchLocation = () => {
 
 // Combined - Reducer function:
 // ----------------
+
 const reducer = redux.combineReducers({
 	name: nameReducer,
 	hobbies: hobbiesReducer,
@@ -101,10 +107,12 @@ const reducer = redux.combineReducers({
 
 // Create Store:
 // ------------
+
 const store = redux.createStore(reducer, redux.compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
 
 // Subscribe to changes:
 // --------------------
+
 const unsubscribe = store.subscribe(() => {
 	const state = store.getState();
 
@@ -118,11 +126,13 @@ const unsubscribe = store.subscribe(() => {
 
 // Get/ Fetch inital/current state:
 // -------------------------------
+
 const currentState = store.getState();
 console.log('currentState', currentState);
 
 // Initialize/ Dispatch Actions:
 // ----------------------------
+
 store.dispatch(changeName('Ras Joh'));
 
 store.dispatch(addHobby('Camping'));

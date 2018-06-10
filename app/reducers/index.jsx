@@ -1,5 +1,5 @@
-// Name Reducer amd Action Generators:
-// ----------------------------------
+// Name Reducer :
+// ------------
 const nameReducer = (state = 'Anonymous', action) => {
 	switch (action.type) {
 		case 'CHANGE_NAME':
@@ -14,8 +14,8 @@ const nameReducer = (state = 'Anonymous', action) => {
 // Our func doesnt need the TYPE to be passed as an argument (we set the type when returning the new obj) so in our case it we only pass the NAME parameter since its all we need in this case.
 
 
-// Hobbies Reducer amd Action Generators:
-// -------------------------------------
+// Hobbies Reducer:
+// ---------------
 let nextHobbyId = 1;
 
 const hobbiesReducer = (state = [], action) => {
@@ -36,8 +36,8 @@ const hobbiesReducer = (state = [], action) => {
 };
 
 
-// Movies Reducer amd Action Generators:
-// -------------------------------------
+// Movies Reducer:
+// -------------
 
 let  nextMovieId = 1;
 
@@ -59,8 +59,8 @@ const moviesReducer = (state = [], action) => {
 	}
 };
 
-// Map Reducer function & Action Generators:
-// ----------------------------------------
+// Map Reducer function :
+// --------------------
 const mapReducer = (state = { isFetching: false, url: undefined }, action) => {
 	switch ((action.type)) {
 		case 'START_LOCATION_FETCH':

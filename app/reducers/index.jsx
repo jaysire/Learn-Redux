@@ -1,6 +1,6 @@
 // Name Reducer :
 // ------------
-const nameReducer = (state = 'Anonymous', action) => {
+export const nameReducer = (state = 'Anonymous', action) => {
 	switch (action.type) {
 		case 'CHANGE_NAME':
 			return action.name;
@@ -18,7 +18,7 @@ const nameReducer = (state = 'Anonymous', action) => {
 // ---------------
 let nextHobbyId = 1;
 
-const hobbiesReducer = (state = [], action) => {
+export const hobbiesReducer = (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_HOBBY':
 			return [
@@ -41,7 +41,7 @@ const hobbiesReducer = (state = [], action) => {
 
 let  nextMovieId = 1;
 
-const moviesReducer = (state = [], action) => {
+export const moviesReducer = (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_MOVIE':
 			return [
@@ -61,7 +61,7 @@ const moviesReducer = (state = [], action) => {
 
 // Map Reducer function :
 // --------------------
-const mapReducer = (state = { isFetching: false, url: undefined }, action) => {
+export const mapReducer = (state = { isFetching: false, url: undefined }, action) => {
 	switch ((action.type)) {
 		case 'START_LOCATION_FETCH':
 			return {

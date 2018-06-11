@@ -13,10 +13,13 @@ var store = require('./store/configureStore').configure();
 const unsubscribe = store.subscribe(() => {
 	const state = store.getState();
 
-	console.log('Name is', state.name);
-	document.getElementById('app').innerHTML = state.name;
-
 	console.log('New state', store.getState());
+
+  if (state.map.isFetching) {
+    document.getElementById('app').innerHTML = 'Loading...';
+  } else if (state.map.url) {
+    document.getElementById('app').innerHTML = '<a href="' + state.map.url + '" target="_blank">View Your Location</a>';
+  }
 });
 
 // unsubscribe();
@@ -30,18 +33,20 @@ console.log('currentState', currentState);
 // Initialize/ Dispatch Actions:
 // ----------------------------
 
-store.dispatch(changeName('Ras Joh'));
+actions.fetchLocation();
 
-store.dispatch(addHobby('Camping'));
+store.dispatch(actions.changeName('Ras Joh'));
 
-store.dispatch(addHobby('Soccer'));
+store.dispatch(actions.addHobby('Camping'));
 
-store.dispatch(removeHobby(2));
+store.dispatch(actions.addHobby('Soccer'));
 
-store.dispatch(changeName('Miriam'));
+store.dispatch(actions.removeHobby(2));
 
-store.dispatch(addMovie('Rose Red', 'Horror'));
+store.dispatch(actions.changeName('Miriam'));
 
-store.dispatch(addMovie('Wedding Crashers', 'Comedy'));
+store.dispatch(actions.addMovie('Rose Red', 'Horror'));
 
-store.dispatch(removeMovie(1));
+store.dispatch(actions.addMovie('Wedding Crashers', 'Comedy'));
+
+store.dispatch(actions.removeMovie(1));

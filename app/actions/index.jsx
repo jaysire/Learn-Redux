@@ -73,4 +73,3 @@ export const fetchLocation = () => {
 		store.dispatch(completeLocationFetch(baseUrl) + loc);
 	});
 };
-};

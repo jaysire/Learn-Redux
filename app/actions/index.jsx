@@ -1,6 +1,6 @@
-// Name Action Generators:
-// ----------------------
+var axios = require('axios');
 
+// Name Action Generators:
 export const changeName = name => {
 	return {
 		type: 'CHANGE_NAME',
@@ -64,12 +64,24 @@ export const completeLocationFetch = url => {
 // turn on our complete location fetch action/ function.
 
 export const fetchLocation = () => {
-	store.dispatch(startLocationFetch());
+	return (dispatch, getState) => {
+		dispatch(startLocationFetch());
 
-	axios.get('http://ipinfo.io').then(function(res) {
+		axios.get('http://ipinfo.io').then(function(res) {
 		const loc = res.data.loc;
 		const baseUrl = 'http://maps.google.come?q=';
 
 		store.dispatch(completeLocationFetch(baseUrl) + loc);
 	});
+	}
 };
+
+
+
+
+// axios.get('http://ipinfo.io').then(function(res) {
+// 		const loc = res.data.loc;
+// 		const baseUrl = 'http://maps.google.come?q=';
+
+// 		store.dispatch(completeLocationFetch(baseUrl) + loc);
+// 	});

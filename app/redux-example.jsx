@@ -33,7 +33,7 @@ console.log('currentState', currentState);
 // Initialize/ Dispatch Actions:
 // ----------------------------
 
-actions.fetchLocation();
+store.dispatch(actions.fetchLocation());
 
 store.dispatch(actions.changeName('Ras Joh'));
 

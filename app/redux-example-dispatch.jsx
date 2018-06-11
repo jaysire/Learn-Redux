@@ -37,20 +37,6 @@ store.dispatch({
 
 console.log('New Name will be Josiah!==>', store.getState());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Pure Function is called reducer in Redux
 // reducer takes your Existing State and the Action to occur as arguments/ parameters, & computs the NEW State;
 // reducer is called by Redux and takes two arguments and then it gets passed into our store; It requires this function/ the reducer.

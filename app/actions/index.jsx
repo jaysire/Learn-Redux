@@ -50,8 +50,8 @@ export const removeMovie = id => {
 export const startLocationFetch = () => {
 	return {
 		type: 'START_LOCATION_FETCH',
-  };
-},
+  }
+}
 
 export const completeLocationFetch = url => {
 	return {
